@@ -1,0 +1,56 @@
+html, body { margin: 0; height: 100%; overflow: hidden; background: #140a2e; font-family: system-ui, sans-serif; }
+#app canvas { display: block; touch-action: none; }
+#vr {
+  position: fixed; right: 18px; bottom: 18px;
+  padding: 12px 24px; font-size: 17px; font-weight: 700;
+  color: #2a1006; background: #ffb020; border: 0; border-radius: 12px; cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+}
+#vr:disabled { background: #3a1a48; color: #f0dff5; cursor: default; }
+#hud {
+  display: none; position: fixed; left: 16px; top: 14px; width: 250px;
+  color: #fff2dc; font: 15px/1.45 system-ui, sans-serif; pointer-events: none;
+  background: rgba(18,8,30,0.78); padding: 10px 14px; border-radius: 10px; border: 1px solid #6a3a78;
+}
+#hud b { color: #ffb020; }
+#hud em { color: #b8a0c0; font-size: 13px; font-style: normal; }
+#hud .houses { letter-spacing: 2px; font-size: 16px; margin-top: 4px; }
+#hud .houses i { font-style: normal; color: #ffd890; }
+#hud .houses s { text-decoration: none; color: #5a3a50; }
+#score {
+  display: none; position: fixed; right: 16px; top: 14px; text-align: right; pointer-events: none;
+  color: #fff2dc; font: bold 26px/1.1 monospace; text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+#score small { display: block; font: 13px monospace; color: #b8a0c0; margin-top: 4px; }
+#boss { display: none; position: fixed; left: 50%; top: 14px; transform: translateX(-50%); width: min(420px, calc(100vw - 340px)); text-align: center; color: #ffe0a0; font: bold 15px system-ui, sans-serif; pointer-events: none; }
+#boss .bar { height: 10px; background: rgba(26,12,40,0.85); border-radius: 5px; overflow: hidden; margin-top: 4px; border: 1px solid #ffb020; }
+#boss .bar i { display: block; height: 100%; background: linear-gradient(90deg, #ff4a2a, #ffd25a); }
+#ammo { display: none; position: fixed; left: 50%; bottom: 64px; transform: translateX(-50%); gap: 40px; pointer-events: none; }
+#ammo .gun { display: flex; align-items: center; gap: 8px; color: #b8a0c0; font: bold 14px system-ui, sans-serif; padding: 4px 10px; border-radius: 8px; background: rgba(18,8,30,0.7); }
+#ammo .gun span { font: bold 22px monospace; color: #fff2dc; min-width: 30px; text-align: right; }
+#ammo .gun.low span { color: #ffb040; }
+#ammo .gun.out span { color: #ff5a5a; }
+#cross { display: none; position: fixed; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; pointer-events: none;
+  background: #fff; border-radius: 50%; box-shadow: 0 0 4px rgba(0,0,0,0.8); }
+#msg {
+  display: none; position: fixed; left: 50%; top: 22%; transform: translateX(-50%); max-width: calc(100vw - 32px);
+  font: 700 22px/1.35 system-ui, sans-serif; text-align: center; pointer-events: none;
+  background: rgba(18,8,30,0.7); padding: 8px 16px; border-radius: 10px; text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+#hint {
+  position: fixed; left: 16px; bottom: 18px; right: 300px; color: #fff2dc; font: 14px/1.5 system-ui, sans-serif;
+  pointer-events: none;
+}
+#hint span { display: inline-block; background: rgba(18,8,30,0.75); padding: 6px 10px; border-radius: 8px; }
+#hint:empty { display: none; }
+#fps {
+  display: none; position: fixed; right: 16px; bottom: 76px; color: #ffdf6e; font: bold 15px monospace;
+  background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 6px; pointer-events: none;
+}
+@media (max-width: 760px) {
+  #hint { right: 16px; bottom: 120px; } #msg { font-size: 17px; top: 30%; }
+  #boss { top: auto; bottom: 110px; width: calc(100vw - 32px); }
+  #ammo { bottom: 76px; gap: 12px; }
+  #hud { width: 190px; font-size: 13px; }
+  #score { font-size: 20px; }
+}
